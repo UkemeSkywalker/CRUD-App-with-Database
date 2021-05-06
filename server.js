@@ -23,7 +23,7 @@ const app = express();
 app.use(express.json({ extended: false}));
 
 //Create route
-app.get("./", (req, res) => res.json({ message: "Sample App Route"}));
+app.get("/", (req, res) => res.json({ message: "Sample App Route"}));
 
 // Create PORT
 const port = process.env.PORT || PORT;

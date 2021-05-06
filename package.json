@@ -1,5 +1,5 @@
 {
-  "name": "CRUD-App-with-Database",
+  "name": "crud-app-with-database",
   "version": "1.0.0",
   "description": "Zuri assignment simple express application",
   "main": "server.js",
