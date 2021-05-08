@@ -10,8 +10,9 @@
 
 
 const express = require('express');
-const connectDb = require('./db');
+const bodyParser = require('body-parser');
 require("dotenv").config();
+const connectDb = require('./db');
 const { PORT } = process.env;
 
 //connect db
@@ -19,11 +20,49 @@ connectDb();
 
 //initialise express
 const app = express();
-//initialise express middleware
+//initialise middlewares
 app.use(express.json({ extended: false}));
 
-//Create route
-app.get("/", (req, res) => res.json({ message: "Sample App Route"}));
+
+//load User model
+const User = require('./Models/User');
+
+
+//@route POST /new-user
+//@desc create new user data
+//@access public
+app.post("/new-user", (req, res) => {
+  
+  async () => {
+    try {
+      // check if user exist
+      const user = await User.findOne({ email: req.body.email})
+      if(user){
+        return res.status(400).json({message: "User already exist"});
+      }
+      //create new user
+      const newUser = new User({
+        name: req.body.name,
+        email: req.body.email,
+        country: req.body.country
+        });
+      
+      newUser.save();
+      await res.json(newUser);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+});
+
+
+
+//@route Get /user
+//@desc get user data
+//@access public
+app.get("/user", (req, res) => res.json({ message: "Welcome New User"}));
+
 
 // Create PORT
 const port = process.env.PORT || PORT;
