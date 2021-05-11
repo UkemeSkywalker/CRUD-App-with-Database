@@ -21,11 +21,11 @@
   "homepage": "https://github.com/UkemeSkywalker/CRUD-App-with-Database#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "dotenv": "^9.0.0",
+    "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "express-validator": "^6.10.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.7"
+    "mongoose": "^5.12.8"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

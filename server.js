@@ -8,11 +8,13 @@
  *  7. Listen to App Connection
  */
 
-
-const express = require('express');
-const connectDb = require('./db');
+const express = require("express");
+const connectDb = require("./db");
 require("dotenv").config();
 const { PORT } = process.env;
+
+// import Schema
+const User = require("./models/user");
 
 //connect db
 connectDb();
@@ -20,10 +22,10 @@ connectDb();
 //initialise express
 const app = express();
 //initialise express middleware
-app.use(express.json({ extended: false}));
+app.use(express.json({ extended: false }));
 
 //Create route
-app.get("/", (req, res) => res.json({ message: "Sample App Route"}));
+app.get("/", (req, res) => res.json({ message: "Sample App Route" }));
 
 // Create PORT
 const port = process.env.PORT || PORT;
