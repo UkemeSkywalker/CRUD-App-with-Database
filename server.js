@@ -27,6 +27,18 @@ app.use(express.json({ extended: false }));
 //Create route
 app.get("/", (req, res) => res.json({ message: "Sample App Route" }));
 
+app.post("/user", (req, res) => {
+  const { name, email, country } = req.body;
+  const newUser = new User({
+    name: name,
+    email: email,
+    country: country,
+  });
+  if (!newUser) {
+    return res.status();
+  }
+});
+
 // Create PORT
 const port = process.env.PORT || PORT;
 
