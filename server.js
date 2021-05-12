@@ -29,16 +29,63 @@ app.get("/", (req, res) => res.json({ message: "Sample App Route" }));
 
 // create new user
 app.post("/user", (req, res) => {
-  const { name, email, country } = req.body;
-  const newUser = new User({
-    name: name,
-    email: email,
-    country: country,
-  });
-  if (!newUser) {
-    return res.status();
+
+  async function newUser(){
+    try {
+      const { name, email, country } = req.body;
+      const newUser = new User({name: name, email: email, country: country });
+      if(!newUsers){
+        return res.status(500).json({message: "can NOT create new user at the moment"});
+      }
+      await newUser.save();
+      res.status(200).json({message: 'new user created' , newUser});
+  
+  console.log(newUser);
+    } catch (error) {
+      console.log(error);
+    }
   }
+  newUser();
+  
 });
+
+// Get all Users
+app.get('/all-users', (req, res) => {
+    async function listAllUsers(){
+      try {
+        const allUsers = await User.find({});
+        if(!allUsers){
+          return res.status(500).json({message: "can NOT fetch data at the moment"});
+        }
+        res.status(200).json({message: "List of all Users", allUsers});
+        
+      } catch (error) {
+        console.log(error);
+      }
+    
+    }
+    listAllUsers();
+})
+
+//find single user by name
+app.post('/search-user', (req, res) => {
+  async function searchUser() {
+    const {name} = req.body;
+  try {
+    const searchResult = await User.findOne({name});
+    if(!searchResult){
+      return res.status(500).json({message:"NO user by that name"});
+    }
+    res.status(200).json(searchResult);
+    // res.status(200).json(searchResult);
+  } catch (error) {
+    console.log(error);
+  }
+  }
+  searchUser();
+})
+
+// Find one user and update
 
 // Create PORT
 const port = process.env.PORT || PORT;
