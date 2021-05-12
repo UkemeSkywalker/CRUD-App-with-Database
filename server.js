@@ -27,6 +27,7 @@ app.use(express.json({ extended: false }));
 //Create route
 app.get("/", (req, res) => res.json({ message: "Sample App Route" }));
 
+// create new user
 app.post("/user", (req, res) => {
   const { name, email, country } = req.body;
   const newUser = new User({
