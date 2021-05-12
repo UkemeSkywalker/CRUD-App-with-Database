@@ -30,13 +30,13 @@ const {newUser, listAllUsers, findUser, updateUser, deleteUser} = userAccount;
 //@access Public
 app.get("/test", (req, res) => res.json({ message: "Sample App Route" }));
 
-//@route  POST /users
+//@route  POST /new-users
 //@desc   create new user route
 //@access Public
 app.post("/new-user", newUser);
 
-//@route  GET /users
-//@desc   Get all Users route
+//@route  GET /get-users
+//@desc   List all Users route
 //@access Public
 app.get("/get-users", listAllUsers);
 
@@ -50,7 +50,7 @@ app.get('/find/:id', findUser);
 //@access Public
 app.put("/update/:id", updateUser)
 
-//@route  DELETE /delete/users
+//@route  DELETE /delete/:id
 //@desc   delete user by id route
 //@access Public
 app.delete("/delete/:id", deleteUser)
