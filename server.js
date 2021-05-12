@@ -65,7 +65,7 @@ app.get('/all-users', (req, res) => {
     
     }
     listAllUsers();
-})
+});
 
 //find single user by name
 app.post('/search-user', (req, res) => {
@@ -83,9 +83,45 @@ app.post('/search-user', (req, res) => {
   }
   }
   searchUser();
+});
+
+//find and update user
+app.put("/update/:id", (req, res) => {
+  async function updateUser(){
+    const {id} = req.params;
+    try {
+    const {name, email, country} = req.body;
+    const updatedUser = await User.findByIdAndUpdate(id, {name, email, country} )
+    if(!updatedUser){
+      return res.status(500).json({message: "can NOT update user at the moment"});
+    }
+    await updatedUser.save();
+    res.status(200).json({message: "User updated successfully",updatedUser});
+      
+    } catch (error) {
+      console.log(error);
+    }
+    
+  }
+  updateUser();
 })
 
-// Find one user and update
+//find user by id and delete
+app.delete("/delete/:id", (req, res) => {
+  async function deleteUser(){
+    try {
+      const {id} = req.params
+      const deletedUser = await User.findByIdAndDelete(id);
+      if(!deletedUser){
+        return res.status(500).json({message: "can NOT delete user at the moment"});
+      }
+      res.status(200).json({message: "User successfully deleted"});
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  deleteUser()
+})
 
 // Create PORT
 const port = process.env.PORT || PORT;
