@@ -56,4 +56,4 @@ app.put("/update/:id", updateUser)
 app.delete("/delete/:id", deleteUser)
 
 // Listen to connection
-app.listen(process.env.PORT , () => console.log(`app running on port ${port}`));
+app.listen(process.env.PORT || 5000, () => console.log(`app running on port ${port}`));
