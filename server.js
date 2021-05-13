@@ -56,19 +56,10 @@ app.put("/update/:id", updateUser)
 app.delete("/delete/:id", deleteUser)
 
 // Create PORT
-const port = process.env.PORT || PORT;
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'front_end', 'build')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'front_end', 'build', 'index.html'))
-  });
-  
-}
 app.configure( function() {
   app.use( express.static( application_root ) );
 });
 
 
 // Listen to connection
-app.listen(process.env.PORT || 5000, () => console.log(`app running on port ${port}`));
+app.listen(process.env.PORT , () => console.log(`app running on port ${port}`));
