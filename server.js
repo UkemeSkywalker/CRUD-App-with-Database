@@ -33,7 +33,7 @@ app.get("/test", (req, res) => res.json({ message: "Sample App Route" }));
 //@route  POST /new-users
 //@desc   create new user route
 //@access Public
-app.post("/new-user", newUser);
+app.post("/", newUser);
 
 //@route  GET /get-users
 //@desc   List all Users route
