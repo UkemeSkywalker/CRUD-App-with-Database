@@ -56,7 +56,7 @@ app.put("/update/:id", updateUser)
 app.delete("/delete/:id", deleteUser)
 
 // Create PORT
-const port = process.env.PORT || PORT;
+const port = process.env.PORT || 5000;
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'front_end', 'build')));
 
