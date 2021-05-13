@@ -31,7 +31,7 @@ https://zuri-crud-app-21.herokuapp.com/
 #### Create new user route
 
 ```http
-   POST /new-users
+   POST /new-user
 ```
 
 | Parameter | Type     | Description   |
