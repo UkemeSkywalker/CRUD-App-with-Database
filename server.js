@@ -25,20 +25,15 @@ app.use(express.json({ extended: false }));
 const userAccount = require('./controllers/userAccount');
 const {newUser, listAllUsers, findUser, updateUser, deleteUser} = userAccount;
 
-//@route  GET /test
-//@desc   Test users route
+//@route  GET /
+//@desc   List all Users route
 //@access Public
-app.get("/test", (req, res) => res.json({ message: "Sample App Route" }));
+app.get("/", listAllUsers);
 
 //@route  POST /new-users
 //@desc   create new user route
 //@access Public
 app.post("/new-user", newUser);
-
-//@route  GET /get-users
-//@desc   List all Users route
-//@access Public
-app.get("/", listAllUsers);
 
 //@route  GET /find/:id
 //@desc   find single user by id route
@@ -55,20 +50,8 @@ app.put("/update/:id", updateUser)
 //@access Public
 app.delete("/delete/:id", deleteUser)
 
-// Create PORT
-const port = process.env.PORT || PORT;
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'front_end', 'build')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'front_end', 'build', 'index.html'))
-  });
-  
-}
-app.configure( function() {
-  app.use( express.static( application_root ) );
-});
-
+//PORT
+const port = process.env.PORT || 5000;
 
 // Listen to connection
-app.listen(process.env.PORT || 5000, () => console.log(`app running on port ${port}`));
+app.listen(port, () => console.log(`app running on port ${port}`));
