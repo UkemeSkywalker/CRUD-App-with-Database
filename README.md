@@ -22,10 +22,10 @@ https://zuri-crud-app-21.herokuapp.com/
 
 ## API Reference
 
-#### Test users route
+#### List all Users route
 
 ```http
-  GET /test
+   GET /
 ```
 
 #### Create new user route
@@ -40,11 +40,7 @@ https://zuri-crud-app-21.herokuapp.com/
 | `email`   | `string` | **Required**. |
 | `country` | `string` | **Required**. |
 
-#### List all Users route
 
-```http
-   GET /get-users
-```
 
 #### Find single user by id
 
