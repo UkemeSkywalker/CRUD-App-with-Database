@@ -50,7 +50,7 @@ https://zuri-crud-app-21.herokuapp.com/
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+| `id`      | `ObjectId` | **Required**. Id of item to fetch |
 
 #### Update user by id
 
@@ -60,7 +60,7 @@ https://zuri-crud-app-21.herokuapp.com/
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+| `id`      | `ObjectId` | **Required**. Id of item to fetch |
 
 #### Delete user by id
 
@@ -70,7 +70,7 @@ https://zuri-crud-app-21.herokuapp.com/
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+| `id`      | `ObjectId` | **Required**. Id of item to fetch |
 
 
 
