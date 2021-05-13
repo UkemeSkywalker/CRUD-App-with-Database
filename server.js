@@ -25,20 +25,15 @@ app.use(express.json({ extended: false }));
 const userAccount = require('./controllers/userAccount');
 const {newUser, listAllUsers, findUser, updateUser, deleteUser} = userAccount;
 
-//@route  GET /test
-//@desc   Test users route
+//@route  GET /get-users
+//@desc   List all Users route
 //@access Public
-app.get("/", (req, res) => res.json({ message: "Sample App Route" }));
+app.get("/allUsers", listAllUsers);
 
 //@route  POST /new-users
 //@desc   create new user route
 //@access Public
 app.post("/new-user", newUser);
-
-//@route  GET /get-users
-//@desc   List all Users route
-//@access Public
-app.get("/allUsers", listAllUsers);
 
 //@route  GET /find/:id
 //@desc   find single user by id route
