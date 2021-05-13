@@ -15,6 +15,10 @@ simple express application that:
 
 Express, mongoose
 
+## Heroku
+
+https://zuri-crud-app-with-database.herokuapp.com/
+
 ## Deployment
 
 To deploy this project run
