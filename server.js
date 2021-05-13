@@ -66,4 +66,4 @@ app.get('*',(req, res) => {
 });
 
 // Listen to connection
-app.listen(port, () => console.log(`app running on port ${port}`));
+app.listen(process.env.PORT || 5000, () => console.log(`app running on port ${port}`));
