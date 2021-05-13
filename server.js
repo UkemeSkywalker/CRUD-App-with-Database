@@ -55,11 +55,5 @@ app.put("/update/:id", updateUser)
 //@access Public
 app.delete("/delete/:id", deleteUser)
 
-// Create PORT
-app.configure( function() {
-  app.use( express.static( application_root ) );
-});
-
-
 // Listen to connection
 app.listen(process.env.PORT , () => console.log(`app running on port ${port}`));
