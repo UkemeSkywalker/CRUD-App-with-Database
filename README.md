@@ -15,17 +15,6 @@ simple express application that:
 
 Express, mongoose
 
-## Heroku
-
-https://zuri-crud-app-with-database.herokuapp.com/
-
-## Deployment
-
-To deploy this project run
-
-```bash
-  npm run server
-```
 
 ## API Reference
 
@@ -82,3 +71,16 @@ To deploy this project run
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. Id of item to fetch |
+
+## Heroku
+
+https://zuri-crud-app-with-database.herokuapp.com/
+
+## Deployment
+
+To deploy this project run
+
+```bash
+  npm run server
+```
+
