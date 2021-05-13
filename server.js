@@ -28,7 +28,7 @@ const {newUser, listAllUsers, findUser, updateUser, deleteUser} = userAccount;
 //@route  GET /test
 //@desc   Test users route
 //@access Public
-app.get("/", (req, res) => res.json({ message: "Sample App Route" }));
+app.get("/test", (req, res) => res.json({ message: "Sample App Route" }));
 
 //@route  POST /new-users
 //@desc   create new user route
@@ -56,7 +56,7 @@ app.put("/update/:id", updateUser)
 app.delete("/delete/:id", deleteUser)
 
 // Create PORT
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || PORT;
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'front_end', 'build')));
 
