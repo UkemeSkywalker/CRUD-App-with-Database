@@ -57,7 +57,7 @@ app.delete("/delete/:id", deleteUser)
 
 // Create PORT
 const port = process.env.PORT || PORT;
-if(process.env.NODE.ENV === 'production') {
+if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'front_end', 'build')));
 
   app.get('*', (req, res) => {
