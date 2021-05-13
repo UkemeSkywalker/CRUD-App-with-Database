@@ -33,12 +33,12 @@ app.get("/test", (req, res) => res.json({ message: "Sample App Route" }));
 //@route  POST /new-users
 //@desc   create new user route
 //@access Public
-app.post("/", newUser);
+app.post("/new-user", newUser);
 
 //@route  GET /get-users
 //@desc   List all Users route
 //@access Public
-app.get("/get-users", listAllUsers);
+app.get("/", listAllUsers);
 
 //@route  GET /find/:id
 //@desc   find single user by id route
