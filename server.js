@@ -25,10 +25,10 @@ app.use(express.json({ extended: false }));
 const userAccount = require('./controllers/userAccount');
 const {newUser, listAllUsers, findUser, updateUser, deleteUser} = userAccount;
 
-//@route  GET /get-users
+//@route  GET /
 //@desc   List all Users route
 //@access Public
-app.get("/allUsers", listAllUsers);
+app.get("/", listAllUsers);
 
 //@route  POST /new-users
 //@desc   create new user route
