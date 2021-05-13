@@ -28,7 +28,7 @@ const {newUser, listAllUsers, findUser, updateUser, deleteUser} = userAccount;
 //@route  GET /test
 //@desc   Test users route
 //@access Public
-app.get("/test", (req, res) => res.json({ message: "Sample App Route" }));
+app.get("/", (req, res) => res.json({ message: "Sample App Route" }));
 
 //@route  POST /new-users
 //@desc   create new user route
@@ -38,7 +38,7 @@ app.post("/new-user", newUser);
 //@route  GET /get-users
 //@desc   List all Users route
 //@access Public
-app.get("/", listAllUsers);
+app.get("/allUsers", listAllUsers);
 
 //@route  GET /find/:id
 //@desc   find single user by id route
