@@ -62,6 +62,10 @@ https://zuri-crud-app-21.herokuapp.com/
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `ObjectId` | **Required**. Id of item to fetch |
 
+| `name`    | `string` | **Required**. |
+| `email`   | `string` | **Required**. |
+| `country` | `string` | **Required**. |
+
 #### Delete user by id
 
 ```http
