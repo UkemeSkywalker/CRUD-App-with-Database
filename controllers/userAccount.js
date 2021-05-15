@@ -7,15 +7,17 @@ class userAccount {
   // Create new User
   static async  newUser(req, res){
     try {
-      const { name, email, country } = req.body;
-      const newUser = new User({name: name, email: email, country: country });
-      if(!newUser){
-        return res.status(500).json({message: "can NOT create new user at the moment"});
+      const { name, country, email} = req.body;
+      // check email exist
+      const checkMailExist = await User.findOne({email});
+      if(checkMailExist){
+        return res.status(500).json({message:'email already exist, use a different email'});
+
       }
+      const newUser = new User({name: name, email: email, country: country });
       await newUser.save();
       res.status(200).json({message: 'new user created' , newUser});
   
-  console.log(newUser);
     } catch (error) {
       console.log(error);
     }
